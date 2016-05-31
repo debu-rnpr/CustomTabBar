@@ -29,6 +29,43 @@ dependencies {
 }
 ```
 
+Create custom drawable for each tab like - 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/tabbar_item_select" android:state_selected="true" />
+    <item android:drawable="@drawable/tabbar_item" android:state_selected="false" />
+</selector>
+
+```
+
+Now create an array with all the drawable name in strings.xml like(tabs will be displayed in the same order) - 
+
+```
+<array name="SelectorList">
+        <item>selector_home</item>
+        <item>selector_camera</item>
+        <item>selector_meme</item>
+        <item>selector_profile</item>
+    </array>
+
+```
+
+Finally add this view in xml as -
+
+```
+  <com.debu.customtabbar.CustomTabView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        app:tabSelectors="@array/SelectorList"
+        />
+```
+Now using orientation we can create a horizontal or vertical tab view
+
 Code below demonstrates the use of this library, you can use activity of fragment 
 
 ```
